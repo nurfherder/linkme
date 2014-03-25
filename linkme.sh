@@ -121,9 +121,13 @@ while read line; do
       ln -s ${L_SRC} ${L_DST}
     fi
   else
-    echo " * STATE: '${L_DST}' already exists and isn't a SymLink."
-    echo " ! MOVE:  Rename to '${L_DST}.${TIMESTAMP}_MOVED_BY_LINKME'"
-    mv ${L_DST} ${L_DST}.${TIMESTAMP}
+    if [ -e ${L_DST} ]; then
+      echo " * STATE: '${L_DST}' already exists and isn't a SymLink."
+      echo " ! MOVE:  Rename to '${L_DST}.${TIMESTAMP}_MOVED_BY_LINKME'"
+      mv ${L_DST} ${L_DST}.${TIMESTAMP}
+    else
+      echo " * STATE: In '${PWD}', file '${L_DST}' doesn't exist."
+    fi
     echo " ! MAKE:  In '${PWD}' create '${L_DST}' -> '${L_SRC}'"
     ln -s ${L_SRC} ${L_DST}
   fi
