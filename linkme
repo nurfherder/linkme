@@ -1,0 +1,8 @@
+# Link ./linkme.sh to ~/bin/linkme.sh
+
+# Basic Operation
+# cd ${DIR}
+# ln -s ${SRC} ${DST}
+
+#'DirectoryForLink':'LinkPointsTo':'NameOfLink'
+%HOME%/bin:../%HERE%/linkme.sh:linkme.sh
