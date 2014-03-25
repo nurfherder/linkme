@@ -7,6 +7,12 @@ Introduction:
 This is a script to simplify deploying git managed config files from their
 working directory using symbolic links.
 
+Prereqs:
+--------
+
+ * A POSIX shell
+ * ~/bin in your path
+
 Deploy:
 -------
 
